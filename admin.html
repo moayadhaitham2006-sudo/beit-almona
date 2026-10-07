@@ -11,6 +11,14 @@
     <input type="password" id="password" placeholder="أدخل كلمة السر">
     <button onclick="login()">دخول</button>
   </div>
+function login() {
+  const password = document.getElementById("password").value;
+  if (password === "1234") { // كلمة السر اللي اخترتها
+    window.location.href = "admin.html"; // يفتح صفحة التعديل
+  } else {
+    alert("❌ كلمة السر غير صحيحة");
+  }
+}
 
   <div id="adminPanel" style="display:none;">
     <h2>📊 تعديل الأسعار والكمية</h2>
