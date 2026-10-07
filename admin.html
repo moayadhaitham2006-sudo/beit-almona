@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>لوحة التحكم - بيت المونة</title>
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <h2>🔒 تسجيل الدخول</h2>
+  <div id="login">
+    <input type="password" id="password" placeholder="أدخل كلمة السر">
+    <button onclick="login()">دخول</button>
+  </div>
+
+  <div id="adminPanel" style="display:none;">
+    <h2>📊 تعديل الأسعار والكمية</h2>
+    <input type="text" id="barcode" placeholder="باركود">
+    <input type="text" id="name" placeholder="اسم الصنف">
+    <input type="text" id="price" placeholder="السعر">
+    <input type="text" id="qty" placeholder="الكمية">
+    <button onclick="saveProduct()">حفظ</button>
+    <p id="status"></p>
+  </div>
+</body>
+</html>
