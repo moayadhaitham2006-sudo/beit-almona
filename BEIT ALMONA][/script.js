@@ -1,15 +1,27 @@
 // قاعدة بيانات مؤقتة (ممكن تربطها لاحقاً مع Google Sheets)
-const https://script.google.com/macros/s/AKfycbxL-8cN98MNNKjNA_j2yTxbRpr5Lb6vTqTsEoSog_32MSzL5ErCERQDdVvHvTRZX6cymQ/exec
-};
+// رابط الـ API اللي نسخته من Google Apps Script
+const API_URL = "https://script.google.com/macros/s/XXXXXX/exec";
+
+async function getProduct(barcode) {
+  try {
+    const response = await fetch(API_URL);
+    const products = await response.json();
+    return products[barcode] || null;
+  } catch (error) {
+    console.error("خطأ في جلب البيانات:", error);
+    return null;
+  }
+}
 
 function onScanSuccess(decodedText) {
-  if (products[decodedText]) {
-    const p = products[decodedText];
-    document.getElementById("result").innerText =
-      `الصنف: ${p.name}\nالسعر: ${p.price}\nالمتوفر: ${p.qty}`;
-  } else {
-    document.getElementById("result").innerText = "❌ الصنف غير موجود";
-  }
+  getProduct(decodedText).then(product => {
+    if (product) {
+      document.getElementById("result").innerText =
+        `📦 المنتج: ${product.name}\n💰 السعر: ${product.price}\n📊 الكمية: ${product.qty}`;
+    } else {
+      document.getElementById("result").innerText = "❌ المنتج غير موجود في الجدول";
+    }
+  });
 }
 
 function onScanError(errorMessage) {
