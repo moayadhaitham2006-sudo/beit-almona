@@ -1,8 +1,5 @@
 // قاعدة بيانات مؤقتة (ممكن تربطها لاحقاً مع Google Sheets)
-const products = {
-  "123456": { name: "زيت زيتون", price: "20 شيكل", qty: 50 },
-  "789012": { name: "زعتر بلدي", price: "10 شيكل", qty: 100 },
-  "345678": { name: "مكدوس", price: "25 شيكل", qty: 30 }
+const https://script.google.com/macros/s/AKfycbxL-8cN98MNNKjNA_j2yTxbRpr5Lb6vTqTsEoSog_32MSzL5ErCERQDdVvHvTRZX6cymQ/exec
 };
 
 function onScanSuccess(decodedText) {
